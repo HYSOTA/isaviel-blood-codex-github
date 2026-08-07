@@ -1,0 +1,12 @@
+{
+  "display_name": "血族调查手札",
+  "loading_order": 100,
+  "requires": [],
+  "optional": [],
+  "js": "index.js",
+  "css": "style.css",
+  "author": "BloodCodex",
+  "version": "4.1.0",
+  "homePage": "",
+  "auto_update": false
+}
