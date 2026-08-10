@@ -308,9 +308,21 @@ function buildMainNPC(d, key, fullName) {
   const info = d?.[key] || {};
   if (!Object.keys(info).length) return `<div class="npc-empty">${sv(fullName)}尚无变量记录</div>`;
   const scalarSkip = new Set(['身体状态','当前地点','在场状态','当前情绪','核心目标','当前计划','个人处境','当前态度','已知秘密','最近变化依据','已处理事件']);
-  const metrics = Object.entries(info).filter(([k,v]) => !scalarSkip.has(k) && ['string','number','boolean'].includes(typeof v));
+  const metricEntries = Object.entries(info).filter(([k,v]) => !scalarSkip.has(k) && ['string','number','boolean'].includes(typeof v));
+  const adrianCore = key === '阿德里安'
+    ? ['血缚影响','总管身份边界','私人感情压抑','自主判断']
+    : [];
+  const coreMetrics = adrianCore
+    .map(name => [name, info[name]])
+    .filter(([,value]) => value !== undefined && value !== null && value !== '');
+  const coreNames = new Set(adrianCore);
+  const metrics = metricEntries.filter(([name]) => !coreNames.has(name));
   let html = `<div class="npc-profile-title">${sv(fullName)}</div>`;
   if (info.在场状态 || info.当前地点) html += `<div class="npc-stats npc-center">${[sv(info.在场状态),sv(info.当前地点)].filter(Boolean).join(' · ')}</div>`;
+  if (coreMetrics.length) {
+    html += '<div class="npc-section"><div class="t-red">血缚与身份</div></div>';
+    html += `<div class="npc-metric-grid npc-core-metrics">${coreMetrics.map(([k,v]) => `<div class="npc-metric"><span>${sv(k)}</span><b>${sv(v)}</b></div>`).join('')}</div>`;
+  }
   if (metrics.length) html += `<div class="npc-metric-grid">${metrics.map(([k,v]) => `<div class="npc-metric"><span>${sv(k)}</span><b>${sv(v)}</b></div>`).join('')}</div>`;
   for (const [label, value] of Object.entries(info)) {
     if (value && typeof value === 'object' && !Array.isArray(value) && !['已处理事件'].includes(label)) html += metricLine(label, value);
