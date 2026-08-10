@@ -4,7 +4,7 @@
 import { getContext, extension_settings } from '../../../extensions.js';
 
 const EXT = 'isaviel-blood-codex';
-const ASSET = `scripts/extensions/third-party/${EXT}/assets`;
+const ASSET = `/scripts/extensions/third-party/${EXT}/assets`;
 
 // ── 工具函数 ──
 function escapeHTML(v) {

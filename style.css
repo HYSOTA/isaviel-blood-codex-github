@@ -4,12 +4,12 @@
 
 @font-face {
   font-family: 'BCGothic';
-  src: url('./assets/gothic.ttf') format('truetype');
+  src: url('/scripts/extensions/third-party/isaviel-blood-codex/assets/gothic.ttf') format('truetype');
   font-display: swap;
 }
 @font-face {
   font-family: 'BCYao';
-  src: url('./assets/yao.ttf') format('truetype');
+  src: url('/scripts/extensions/third-party/isaviel-blood-codex/assets/yao.ttf') format('truetype');
   font-display: swap;
 }
 
@@ -38,7 +38,7 @@
   aspect-ratio: 650 / 988;
   max-height: 95vh;
   overflow: hidden;
-  background: url('./assets/paper.png') center / 100% 100% no-repeat;
+  background: url('/scripts/extensions/third-party/isaviel-blood-codex/assets/paper.png') center / 100% 100% no-repeat;
   background-color: transparent;
   filter: drop-shadow(0 6px 30px rgba(0,0,0,.55));
   display: flex;
@@ -226,7 +226,7 @@
   display: flex;
   flex-direction: column;
   border: clamp(8px, 2vw, 13px) solid transparent;
-  border-image: url('./assets/frame.png') 75 / clamp(8px, 2vw, 13px) / 0 stretch;
+  border-image: url('/scripts/extensions/third-party/isaviel-blood-codex/assets/frame.png') 75 / clamp(8px, 2vw, 13px) / 0 stretch;
 }
 .vbc-scroll {
   flex: 1;
@@ -359,7 +359,7 @@
 .vbc-vdiv-inner {
   width: 272px;
   height: 13px;
-  background: url('./assets/vline.png') center/272px 13px no-repeat;
+  background: url('/scripts/extensions/third-party/isaviel-blood-codex/assets/vline.png') center/272px 13px no-repeat;
   transform: rotate(90deg);
   flex-shrink: 0;
 }
