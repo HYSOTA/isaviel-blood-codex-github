@@ -3,8 +3,8 @@
 // ============================================================
 import { getContext, extension_settings } from '../../../extensions.js';
 
-const EXT = 'isaviel-blood-codex';
-const ASSET = `/scripts/extensions/third-party/${EXT}/assets`;
+// Resolve assets from the installed extension directory, regardless of the GitHub repository name.
+const ASSET = new URL('./assets/', import.meta.url).href.replace(/\/$/, '');
 
 // ── 工具函数 ──
 function escapeHTML(v) {
